@@ -12,7 +12,7 @@ public class ProductController
 {
 @Autowired
 private IProductService productService;
-
+//rest api
 @GetMapping(value = "/product")
 public List<Product> getProduct() 
 {
