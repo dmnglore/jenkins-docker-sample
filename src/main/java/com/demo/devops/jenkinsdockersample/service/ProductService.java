@@ -9,7 +9,6 @@ public class ProductService implements IProductService
 @Override
 public List<Product> findAll()
 {
-//creating an object of ArrayList
 ArrayList<Product> products = new ArrayList<Product>();
 //adding products to the List
 products.add(new Product(100, "Mobile", "CLK98123", 9000.00, 6));
@@ -22,7 +21,6 @@ products.add(new Product(106, "Dishwasher ", "12WP9087", 10000.00, 4));
 products.add(new Product(107, "Charger ", "12WP9087", 10000.00, 4));
 
 
-//returns a list of product
 return products;
 }
 }
