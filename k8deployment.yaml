@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-integration-k8s
+spec:
+  selector:
+    matchLabels:
+      app: devops-integration-k8s
+  replicas: 3
+  template:
+    metadata:
+      labels: 
+        app: devops-integration-k8s
+    spec:
+      containers:
+        - name: devops-integration-k8s
+          image: dayalathakodagi/devops-integration:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9070
+           
+    
+  
+  
+
