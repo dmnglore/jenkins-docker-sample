@@ -63,7 +63,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>jenkins-docker-sample</finalName>
+		<finalName>devops-integration</finalName>
 	</build>
 
 </project>
