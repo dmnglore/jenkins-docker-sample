@@ -13,12 +13,12 @@ spec:
         app: devops-integration-k8s
     spec:
       containers:
-      env:
         - name: devops-integration-k8s
           image: dayalathakodagi/devops-integration:1.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9070
+           
 
 ---
 apiVersion: v1
