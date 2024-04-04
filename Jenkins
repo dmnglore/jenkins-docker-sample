@@ -33,7 +33,7 @@ pipeline{
 				steps{
 					script{
 					    try{
-					    kubernetesDeploy (configs: 'k8deployment.yaml', kubeconfigId: 'kubeconfigidd')
+					    kubernetesDeploy (configs: 'k8deployment.yaml', kubeconfigId: 'kubeconfig')
 					} catch (Exception e) {
                         echo "Error deploying to Kubernetes: ${e.message}"
                         error "Deployment failed"
