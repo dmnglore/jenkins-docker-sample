@@ -17,6 +17,8 @@ spec:
         env:
         - name: discovery.type
           value: single-node
+        - name: ELASTIC_PASSWORD
+          value: "changeme"
         ports:
         - containerPort: 9200
 ---
