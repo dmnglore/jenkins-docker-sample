@@ -61,3 +61,5 @@ data:
         - /var/log/*.log
     output.logstash:
       hosts: ["logstash:5044"]
+      username: "elastic"
+      password: "changeme"
