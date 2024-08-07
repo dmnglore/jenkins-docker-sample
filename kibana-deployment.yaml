@@ -15,6 +15,10 @@ spec:
       - name: kibana
         image: docker.elastic.co/kibana/kibana:7.10.0
         env:
+        - name: ELASTICSEARCH_USERNAME
+          value: "elastic"
+        - name: ELASTICSEARCH_PASSWORD
+          value: "changeme"
         - name: ELASTICSEARCH_URL
           value: http://elasticsearch:9200
         ports:
