@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: devops-integration-k8s
-  replicas: 5
+  replicas: 6
   template:
     metadata:
       labels: 
