@@ -6,7 +6,7 @@ pipeline{
 	environment {   
 		DOCKER_REGISTRY = "https://index.docker.io/v1/"
 		DOCKER_IMAGE_NAME = "dayalathakodagi/devops-integration:1.0"
-		DOCKER_CREDENTAILS = credentials('DOCKER_HUB_CREDENTIALS')
+		DOCKER_CREDENTIALS = credentials('DOCKER_HUB_CREDENTIALS')
 		//CHATGPT_API_TOKEN_SERVICE_URL = 'http://localhost:8092/generateResponse'
 		}
 	stages{
