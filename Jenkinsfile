@@ -7,8 +7,6 @@ pipeline{
 		DOCKER_REGISTRY = "https://index.docker.io/v1/"
 		DOCKER_IMAGE_NAME = "dayalathakodagi/devops-integration:1.0"
 		DOCKER_CREDENTIALS = credentials('DOCKER_HUB_CREDENTIALS')
-		KUBECONFIG = 'C:\\Users\\sadha\\.kube\\config'
-
 		//CHATGPT_API_TOKEN_SERVICE_URL = 'http://localhost:8092/generateResponse'
 		}
 	stages{
@@ -25,7 +23,6 @@ pipeline{
 							
 							bat "docker build -t ${DOCKER_IMAGE_NAME} ."
 							bat "docker login -u ${DOCKER_HUB_CREDENTIALS_USR} -p ${DOCKER_HUB_CREDENTIALS_PSW} ${DOCKER_REGISTRY}"
-
 							// Push the Docker image to your container registry
 							bat "docker push ${DOCKER_IMAGE_NAME}"
 						}
@@ -35,10 +32,11 @@ pipeline{
 			stage('Deploy to K8S'){
 				steps{
 					script{
-					   // kubernetesDeploy (configs: 'k8deployment.yaml', kubeconfigId: 'k8configpwd')
-                          bat "kubectl apply -f k8deployment.yaml --kubeconfig=%KUBECONFIG%"
+					   withCredentials([file(credentialsId: 'KUBECONFIG_FILE', variable: 'KUBECONFIG')]) {
+                       bat "kubectl apply -f k8deployment.yaml --kubeconfig=\"%KUBECONFIG%\""
 					}
     	        }
             }
          }
+	}
     }	
