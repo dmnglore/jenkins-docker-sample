@@ -9,6 +9,11 @@ pipeline{
 		DOCKER_CREDENTIALS = credentials('DOCKER_HUB_CREDENTIALS')
 		//CHATGPT_API_TOKEN_SERVICE_URL = 'http://localhost:8092/generateResponse'
 		}
+	options {
+        timestamps() // Good practice: log timestamps
+        skipStagesAfterUnstable() // Fail fast
+    }
+
 	stages{
 		stage('Build Maven'){
 			steps{
@@ -39,4 +44,15 @@ pipeline{
             }
          }
 	}
+	post {
+        success {
+            echo '✅ Pipeline executed successfully!'
+        }
+        failure {
+            echo '❌ Pipeline failed.'
+        }
+        always {
+            cleanWs() // Clean workspace after build
+        }
+    }
     }	
